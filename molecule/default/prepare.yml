@@ -1,0 +1,28 @@
+---
+- name: Ensure we have python and other dependecies
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: check python3
+      ansible.builtin.raw: test -e /usr/bin/python3
+      changed_when: false
+      failed_when: false
+      register: check_python
+
+    - name: check yum
+      ansible.builtin.raw: test -e /usr/bin/yum
+      changed_when: false
+      failed_when: false
+      register: check_yum
+
+    - name: RHEL Install Dependecies
+      ansible.builtin.raw: yum install -y python3 sudo curl procps-ng less vim crontabs bash-completion
+      when:
+        - check_python.rc != 0
+        - check_yum.rc == 0
+
+    - name: RHEL Start cron
+      ansible.builtin.raw: systemctl enable --now crond
+      when:
+        - check_python.rc != 0
+        - check_yum.rc == 0

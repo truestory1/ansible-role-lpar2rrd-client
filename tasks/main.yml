@@ -1,0 +1,45 @@
+---
+# tasks file for lpar2rrd_install
+
+- name: add group - {{ lpar2rrd_group }}
+  ansible.builtin.group:
+    name: "{{ lpar2rrd_group }}"
+    state: present
+
+- name: add user - {{ lpar2rrd_user }}
+  ansible.builtin.user:
+    name: "{{ lpar2rrd_user }}"
+    group: "{{ lpar2rrd_group }}"
+    shell: "{{ lpar2rrd_shell }}"
+    state: present
+
+- name: install dependecies
+  ansible.builtin.yum:
+    name: "{{ lpar2rrd_dependecies }}"
+    state: present
+
+- name: download url
+  set_fact:
+    download_url: "{{ lpar2rrd_baseurl }}/lpar2rrd-agent-{{ lpar2rrd_version }}.{{ lpar2rrd_arch }}.{{ lpar2rrd_type }}"
+
+- name: debug
+  debug:
+    var: download_url
+
+- name: install lpar2rrd {{ lpar2rrd_version }}
+  ansible.builtin.yum:
+    name: "{{ download_url }}"
+    disable_gpg_check: "{{ disable_gpg_check }}"
+    state: present
+
+- name: setup crontab entry for {{ lpar2rrd_user }}
+  ansible.builtin.cron:
+    name: "{{ lpar2rrd_user }}"
+    user: "{{ lpar2rrd_user }}"
+    job: "{{ lpar2rrd_crontab_job }}"
+    minute: "{{ lpar2rrd_crontab_minute }}"
+    hour: "{{ lpar2rrd_crontab_hour }}"
+    day: "{{ lpar2rrd_crontab_day }}"
+    month: "{{ lpar2rrd_crontab_month }}"
+    weekday: "{{ lpar2rrd_crontab_weekday  }}"
+    state: present
