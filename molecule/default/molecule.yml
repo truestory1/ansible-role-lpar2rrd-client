@@ -8,9 +8,35 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: lpar2rrd-rhel
-    image: registry.access.redhat.com/ubi8/ubi-init
-    pre_build_image: true
+  - name: lpar2rrd-rhel7
+    pre_build_image: false
+    registry:
+      url: registry.access.redhat.com
+    image: ubi7/ubi-init
+    privileged: true
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    command: "/sbin/init"
+
+  # - name: lpar2rrd-rhel8
+  #   registry:
+  #     url: registry.access.redhat.com
+  #   image: ubi8/ubi-init
+  #   privileged: true
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+  #   command: "/sbin/init"
+
+  - name: lpar2rrd-debian-stable
+    image: debian:stable
+    pre_build_image: false
+    dockerfile: Dockerfile-debian.j2
     privileged: true
     tmpfs:
       - /run

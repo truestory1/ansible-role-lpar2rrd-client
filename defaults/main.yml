@@ -1,5 +1,5 @@
 ---
-# defaults file for lpar2rrd_install
+debug: false
 
 lpar2rrd_user: lpar2rrd
 lpar2rrd_group: lpar2rrd
@@ -9,8 +9,6 @@ lpar2rrd_dependecies:
   - perl
 
 lpar2rrd_version: "7.40-0"
-lpar2rrd_arch: "noarch"
-lpar2rrd_type: "rpm"
 lpar2rrd_baseurl: "https://www.lpar2rrd.com/agent"
 
 disable_gpg_check: yes
