@@ -22,12 +22,9 @@
 
 - name: debug
   debug:
-    var: download_url
-  when: debug | bool
-
-- name: debug
-  debug:
-    var: download_filename
+    var: "{{ item }}"
+  loop:
+    - download_url
   when: debug | bool
 
 - name: apt -install lpar2rrd {{ lpar2rrd_version }}
@@ -55,11 +52,3 @@
     month: "{{ lpar2rrd_crontab_month }}"
     weekday: "{{ lpar2rrd_crontab_weekday  }}"
     state: present
-
-- name: remove tempdir
-  ansible.builtin.file:
-    path: "{{ download_dir.path }}"
-    state: absent
-  when:
-    - download_dir.path is defined
-    - not debug | bool
