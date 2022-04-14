@@ -14,11 +14,6 @@ platforms:
       url: registry.access.redhat.com
     image: ubi7/ubi-init
     privileged: true
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: "/sbin/init"
 
   - name: lpar2rrd-rhel8
@@ -26,23 +21,13 @@ platforms:
       url: registry.access.redhat.com
     image: ubi8/ubi-init
     privileged: true
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-    command: "/sbin/init"
+    command: "/usr/sbin/init"
 
   - name: lpar2rrd-debian-stable
     image: debian:stable
     pre_build_image: false
     dockerfile: Dockerfile-debian.j2
     privileged: true
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: "/sbin/init"
 
 provisioner:
