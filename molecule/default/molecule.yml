@@ -16,21 +16,6 @@ platforms:
     privileged: true
     command: "/sbin/init"
 
-  - name: lpar2rrd-rhel8
-    pre_build_image: false
-    registry:
-      url: registry.access.redhat.com
-    image: ubi8/ubi-init
-    privileged: true
-    command: "/usr/sbin/init"
-
-  - name: lpar2rrd-debian-stable
-    pre_build_image: false
-    image: debian:stable
-    dockerfile: Dockerfile-debian.j2
-    privileged: true
-    command: "/sbin/init"
-
 provisioner:
   name: ansible
 verifier:
