@@ -6,7 +6,7 @@ lint: |
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: podman
 platforms:
   - name: lpar2rrd-rhel7
     pre_build_image: false
