@@ -8,14 +8,6 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: lpar2rrd-rhel7
-    pre_build_image: false
-    registry:
-      url: registry.access.redhat.com
-    image: ubi7/ubi-init
-    privileged: true
-    command: "/sbin/init"
-
   - name: lpar2rrd-rhel8
     pre_build_image: false
     registry:
@@ -24,14 +16,10 @@ platforms:
     privileged: true
     command: "/usr/sbin/init"
 
-  - name: lpar2rrd-debian-stable
-    pre_build_image: false
-    image: debian:stable
-    dockerfile: Dockerfile-debian.j2
-    privileged: true
-    command: "/sbin/init"
-
 provisioner:
   name: ansible
+  playbooks:
+    converge: ../default/converge.yml
+    prepare: ../default/prepare.yml
 verifier:
   name: ansible

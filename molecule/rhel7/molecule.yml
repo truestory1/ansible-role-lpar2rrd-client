@@ -1,0 +1,25 @@
+---
+lint: |
+  set -e
+  yamllint .
+  ansible-lint -f rich
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: lpar2rrd-rhel7
+    pre_build_image: false
+    registry:
+      url: registry.access.redhat.com
+    image: ubi7/ubi-init
+    privileged: true
+    command: "/sbin/init"
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../default/converge.yml
+    prepare: ../default/prepare.yml
+verifier:
+  name: ansible
