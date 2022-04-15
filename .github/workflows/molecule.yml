@@ -15,7 +15,9 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
-          - default
+          - rhel7
+          - rhel8
+          - debian
     steps:
       - name: Checkout
         uses: actions/checkout@v2

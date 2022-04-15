@@ -1,0 +1,21 @@
+---
+lint: |
+  set -e
+  yamllint .
+  ansible-lint -f rich
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: lpar2rrd-debian-stable
+    pre_build_image: false
+    image: debian:stable
+    dockerfile: Dockerfile-debian.j2
+    privileged: true
+    command: "/sbin/init"
+
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
