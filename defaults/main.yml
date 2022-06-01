@@ -15,8 +15,8 @@ lpar2rrd_baseurl: "https://www.lpar2rrd.com/agent"
 
 lpar2rrd_server: "lpar2rrd.test.local"
 lpar2rrd_crontab_job: "/usr/bin/perl /opt/lpar2rrd-agent/lpar2rrd-agent.pl {{ lpar2rrd_server }} > /var/tmp/lpar2rrd-agent.out 2>&1"
-lpar2rrd_crontab_minute: "*"
-lpar2rrd_crontab_hour: "*"
-lpar2rrd_crontab_day: "*"
-lpar2rrd_crontab_month: "*"
-lpar2rrd_crontab_weekday: "*"
+# lpar2rrd_crontab_minute: "*" # optional
+# lpar2rrd_crontab_hour: "*" # optional
+# lpar2rrd_crontab_day: "*" # optional
+# lpar2rrd_crontab_month: "*" # optional
+# lpar2rrd_crontab_weekday: "*" # optional
