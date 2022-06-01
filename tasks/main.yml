@@ -13,9 +13,9 @@
     shell: "{{ lpar2rrd_shell }}"
     state: present
 
-- name: install dependecies
+- name: install dependencies
   ansible.builtin.package:
-    name: "{{ lpar2rrd_dependecies }}"
+    name: "{{ __lpar2rrd_dependencies }}"
     state: present
 
 - name: download url
