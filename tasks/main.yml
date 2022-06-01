@@ -27,7 +27,7 @@
     var: "{{ item }}"
   loop:
     - download_url
-  when: debug | bool
+  when: debug | default('false') | bool
 
 - name: apt -install lpar2rrd {{ lpar2rrd_version }}
   ansible.builtin.apt:

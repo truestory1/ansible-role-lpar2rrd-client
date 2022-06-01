@@ -1,12 +1,11 @@
 ---
-debug: true
+# debug: true # optional
 
 lpar2rrd_user: lpar2rrd
 # lpar2rrd_useruid: 123456 # optional
 lpar2rrd_group: lpar2rrd
 # lpar2rrd_groupgid: 2000 # optional
 lpar2rrd_shell: /bin/bash
-
 
 lpar2rrd_version: "7.40-0"
 lpar2rrd_baseurl: "https://www.lpar2rrd.com/agent"
