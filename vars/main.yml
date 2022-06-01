@@ -17,3 +17,6 @@ __lpar2rrd_delimiter_list:
 __lpar2rrd_type: "{{ __suffix[ansible_pkg_mgr] }}"
 __lpar2rrd_arch: "{{ __lpar2rrd_arch_list[ansible_pkg_mgr] }}"
 __lpar2rrd_delimiter: "{{ __lpar2rrd_delimiter_list[ansible_pkg_mgr] }}"
+
+__lpar2rrd_dependencies:
+  - perl
