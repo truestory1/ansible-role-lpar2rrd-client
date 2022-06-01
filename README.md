@@ -18,5 +18,5 @@ see defaults/main.yml
 Example Playbook
 ----------------
 
-see molecule/default/converge.yml
+see molecule converge [playbook](molecule/default/converge.yml)
 
