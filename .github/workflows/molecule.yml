@@ -18,6 +18,7 @@ jobs:
         scenario:
           - rhel7
           - rhel8
+          - rhel9
           - debian
     steps:
       - name: Checkout
