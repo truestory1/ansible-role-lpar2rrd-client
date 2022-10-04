@@ -1,0 +1,50 @@
+---
+- name: remove crontab entry for {{ lpar2rrd_user }}
+  ansible.builtin.cron:
+    name: "{{ lpar2rrd_user }}"
+    user: "{{ lpar2rrd_user }}"
+    job: "{{ lpar2rrd_crontab_job }}"
+    minute: "{{ lpar2rrd_crontab_minute | default('*') }}"
+    hour: "{{ lpar2rrd_crontab_hour | default('*') }}"
+    day: "{{ lpar2rrd_crontab_day | default('*') }}"
+    month: "{{ lpar2rrd_crontab_month | default('*') }}"
+    weekday: "{{ lpar2rrd_crontab_weekday | default('*')  }}"
+    state: absent
+
+- name: remove package
+  ansible.builtin.package:
+    name: lpar2rrd-agent
+    state: absent
+
+- name: remove user - {{ lpar2rrd_user }}
+  ansible.builtin.user:
+    name: "{{ lpar2rrd_user }}"
+    uid: "{{ lpar2rrd_useruid | default(omit) }}"
+    state: absent
+
+- name: remove group - {{ lpar2rrd_group }}
+  ansible.builtin.group:
+    name: "{{ lpar2rrd_group }}"
+    gid: "{{ lpar2rrd_groupgid | default(omit) }}"
+    state: absent
+
+- name: search for temp files
+  ansible.builtin.find:
+    paths: /var/tmp
+    patterns: "lpar2rrd*"
+  register: __findfile
+
+- debug:
+    var: __findfile
+
+- name: remove files
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  loop: "{{ __findfile.files }}"
+
+# END
+# - name: install dependencies
+#   ansible.builtin.package:
+#     name: "{{ __lpar2rrd_dependencies }}"
+#     state: present
