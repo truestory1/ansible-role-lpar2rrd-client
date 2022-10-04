@@ -1,6 +1,7 @@
 ---
 # debug: true # optional
 
+state: present # or absent
 lpar2rrd_user: lpar2rrd
 # lpar2rrd_useruid: 123456 # optional
 lpar2rrd_group: lpar2rrd
