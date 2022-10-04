@@ -9,6 +9,7 @@
           ansible.builtin.package:
             name:
               - crontabs
+              - cronie
             state: present
 
         - name: rhel- start cron service
