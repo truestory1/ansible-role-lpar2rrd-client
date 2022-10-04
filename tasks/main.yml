@@ -1,4 +1,4 @@
 ---
 - name: install steps
-  ansible.builtin.include_playbook: install.yml
+  ansible.builtin.include_tasks: install.yml
   when: state == "present"
