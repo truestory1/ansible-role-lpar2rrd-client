@@ -3,7 +3,7 @@
 LPAR2RRD_INSTALL
 =========
 
-Generic deployment of lpar2rrd
+Generic lpar2rrd deployment, or removal
 
 Requirements
 ------------

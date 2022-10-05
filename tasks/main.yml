@@ -1,56 +1,8 @@
 ---
-- name: add group - {{ lpar2rrd_group }}
-  ansible.builtin.group:
-    name: "{{ lpar2rrd_group }}"
-    gid: "{{ lpar2rrd_groupgid | default(omit) }}"
-    state: present
+- name: install steps
+  ansible.builtin.include_tasks: install.yml
+  when: state == "present"
 
-- name: add user - {{ lpar2rrd_user }}
-  ansible.builtin.user:
-    name: "{{ lpar2rrd_user }}"
-    uid: "{{ lpar2rrd_useruid | default(omit) }}"
-    group: "{{ lpar2rrd_group }}"
-    shell: "{{ lpar2rrd_shell }}"
-    state: present
-
-- name: install dependencies
-  ansible.builtin.package:
-    name: "{{ __lpar2rrd_dependencies }}"
-    state: present
-
-- name: download url
-  set_fact:
-    download_url: "{{ lpar2rrd_baseurl }}/lpar2rrd-agent{{ __lpar2rrd_delimiter }}{{ lpar2rrd_version }}{{ __lpar2rrd_arch }}.{{ __lpar2rrd_type }}"
-
-- name: debug
-  debug:
-    var: "{{ item }}"
-  loop:
-    - download_url
-  when: debug | default('false') | bool
-
-- name: apt -install lpar2rrd {{ lpar2rrd_version }}
-  ansible.builtin.apt:
-    deb: "{{ download_url }}"
-    allow_unauthenticated: yes
-    state: present
-  when: ansible_pkg_mgr in ['apt']
-
-- name: dnf/yum -install lpar2rrd {{ lpar2rrd_version }}
-  ansible.builtin.yum:
-    name: "{{ download_url }}"
-    disable_gpg_check: yes
-    state: present
-  when: ansible_pkg_mgr in ['dnf', 'yum']
-
-- name: setup crontab entry for {{ lpar2rrd_user }}
-  ansible.builtin.cron:
-    name: "{{ lpar2rrd_user }}"
-    user: "{{ lpar2rrd_user }}"
-    job: "{{ lpar2rrd_crontab_job }}"
-    minute: "{{ lpar2rrd_crontab_minute | default('*') }}"
-    hour: "{{ lpar2rrd_crontab_hour | default('*') }}"
-    day: "{{ lpar2rrd_crontab_day | default('*') }}"
-    month: "{{ lpar2rrd_crontab_month | default('*') }}"
-    weekday: "{{ lpar2rrd_crontab_weekday | default('*')  }}"
-    state: present
+- name: remove steps
+  ansible.builtin.include_tasks: remove.yml
+  when: state == "absent"
