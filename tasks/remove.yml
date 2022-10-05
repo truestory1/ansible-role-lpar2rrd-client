@@ -4,11 +4,11 @@
     name: "{{ lpar2rrd_user }}"
     user: "{{ lpar2rrd_user }}"
     job: "{{ lpar2rrd_crontab_job }}"
-    minute: "{{ lpar2rrd_crontab_minute | default('*') }}"
-    hour: "{{ lpar2rrd_crontab_hour | default('*') }}"
-    day: "{{ lpar2rrd_crontab_day | default('*') }}"
-    month: "{{ lpar2rrd_crontab_month | default('*') }}"
-    weekday: "{{ lpar2rrd_crontab_weekday | default('*')  }}"
+    # minute: "{{ lpar2rrd_crontab_minute | default('*') }}"
+    # hour: "{{ lpar2rrd_crontab_hour | default('*') }}"
+    # day: "{{ lpar2rrd_crontab_day | default('*') }}"
+    # month: "{{ lpar2rrd_crontab_month | default('*') }}"
+    # weekday: "{{ lpar2rrd_crontab_weekday | default('*')  }}"
     state: absent
 
 - name: remove package
