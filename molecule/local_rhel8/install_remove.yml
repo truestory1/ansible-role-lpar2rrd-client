@@ -1,13 +1,13 @@
 ---
-# - name: Converge
-#   hosts: all
-#   become: true
-#   vars:
-#     state: present
-#   tasks:
-#     - name: "Include role"
-#       include_role:
-#         name: "lpar2rrd_install"
+- name: Converge
+  hosts: all
+  become: true
+  vars:
+    state: present
+  tasks:
+    - name: "Include role"
+      include_role:
+        name: "lpar2rrd_install"
 
 - name: Converge
   hosts: all
