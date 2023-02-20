@@ -16,7 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
-          - rhel7
           - rhel8
           - rhel9
           - debian
@@ -26,6 +25,6 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: robertdebock/molecule-action@5.0.1
+        uses: robertdebock/molecule-action@5.0.2
         with:
           scenario: ${{ matrix.scenario }}

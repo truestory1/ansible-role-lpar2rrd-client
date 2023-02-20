@@ -3,34 +3,35 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: rhel
+    - name: Rhel
+      when: ansible_facts['distribution'] in ['RedHat']
       block:
-        - name: rhel deps
+        - name: Rhel deps
           ansible.builtin.package:
             name:
               - crontabs
               - cronie
             state: present
 
-        - name: rhel- start cron service
+        - name: Rhel- start cron service
           ansible.builtin.service:
             name: crond
             enabled: yes
             state: started
-      when: ansible_facts['distribution'] in ['RedHat']
 
-    - name: debian
+
+    - name: Debian
+      when: ansible_facts['distribution'] in ['Debian']
       block:
-        - name: deb deps
+        - name: Deb deps
           ansible.builtin.apt:
             name:
               - cron
               - procps
             update_cache: yes
             state: present
-        - name: deb - start cron service
+        - name: Deb - start cron service
           ansible.builtin.service:
             name: cron
             enabled: yes
             state: started
-      when: ansible_facts['distribution'] in ['Debian']

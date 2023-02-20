@@ -4,5 +4,5 @@
   become: true
   tasks:
     - name: "Include role"
-      include_role:
+      ansible.builtin.include_role:
         name: "lpar2rrd_install"
