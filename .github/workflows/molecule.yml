@@ -16,7 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
-          - rhel7
           - rhel8
           - rhel9
           - debian
