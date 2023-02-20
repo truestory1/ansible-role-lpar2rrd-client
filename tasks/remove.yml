@@ -37,6 +37,7 @@
 - name: Debug findfile var
   ansible.builtin.debug:
     var: __findfile
+  when: debug | bool
 
 - name: Remove files
   ansible.builtin.file:

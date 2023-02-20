@@ -19,15 +19,15 @@
     state: present
 
 - name: Download url
-  set_fact:
+  ansible.builtin.set_fact:
     download_url: "{{ lpar2rrd_baseurl }}/lpar2rrd-agent{{ __lpar2rrd_delimiter }}{{ lpar2rrd_version }}{{ __lpar2rrd_arch }}.{{ __lpar2rrd_type }}"
 
 - name: Debug
-  debug:
+  ansible.builtin.debug:
     var: "{{ item }}"
   loop:
     - download_url
-  when: debug | default('false') | bool
+  when: debug | bool
 
 - name: Apt -install lpar2rrd {{ lpar2rrd_version }}
   ansible.builtin.apt:
@@ -48,9 +48,9 @@
     name: "{{ lpar2rrd_user }}"
     user: "{{ lpar2rrd_user }}"
     job: "{{ lpar2rrd_crontab_job }}"
-    minute: "{{ lpar2rrd_crontab_minute | default('*') }}"
-    hour: "{{ lpar2rrd_crontab_hour | default('*') }}"
-    day: "{{ lpar2rrd_crontab_day | default('*') }}"
-    month: "{{ lpar2rrd_crontab_month | default('*') }}"
-    weekday: "{{ lpar2rrd_crontab_weekday | default('*')  }}"
+    minute: "{{ lpar2rrd_crontab_minute }}"
+    hour: "{{ lpar2rrd_crontab_hour }}"
+    day: "{{ lpar2rrd_crontab_day }}"
+    month: "{{ lpar2rrd_crontab_month }}"
+    weekday: "{{ lpar2rrd_crontab_weekday  }}"
     state: present
