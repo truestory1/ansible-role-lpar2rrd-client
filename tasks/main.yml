@@ -1,8 +1,8 @@
 ---
-- name: install steps
+- name: Install steps
   ansible.builtin.include_tasks: install.yml
   when: state == "present"
 
-- name: remove steps
+- name: Remove steps
   ansible.builtin.include_tasks: remove.yml
   when: state == "absent"
