@@ -14,6 +14,7 @@ platforms:
       url: registry.access.redhat.com
     image: ubi7/ubi-init
     privileged: true
+    cgroupns_mode: host
     command: "/sbin/init"
 
 provisioner:

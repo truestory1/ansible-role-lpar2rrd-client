@@ -52,5 +52,5 @@
     hour: "{{ lpar2rrd_crontab_hour }}"
     day: "{{ lpar2rrd_crontab_day }}"
     month: "{{ lpar2rrd_crontab_month }}"
-    weekday: "{{ lpar2rrd_crontab_weekday  }}"
+    weekday: "{{ lpar2rrd_crontab_weekday }}"
     state: present
