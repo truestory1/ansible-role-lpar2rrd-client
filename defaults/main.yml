@@ -8,7 +8,7 @@ lpar2rrd_group: lpar2rrd
 # lpar2rrd_groupgid: 2000 # optional
 lpar2rrd_shell: /bin/bash
 
-lpar2rrd_version: "7.60-0"
+lpar2rrd_version: "7.60-1"
 lpar2rrd_baseurl: "https://www.lpar2rrd.com/agent"
 
 lpar2rrd_server: "lpar2rrd.test.local"
