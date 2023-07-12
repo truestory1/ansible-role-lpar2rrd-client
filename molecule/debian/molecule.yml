@@ -10,7 +10,7 @@ driver:
 platforms:
   - name: lpar2rrd-debian-stable
     pre_build_image: false
-    image: debian:stable
+    image: debian:stable # renovate: datasource=docker
     dockerfile: Dockerfile-debian.j2
     privileged: true
     command: "/sbin/init"
