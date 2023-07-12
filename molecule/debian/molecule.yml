@@ -11,7 +11,7 @@ platforms:
   - name: lpar2rrd-debian-stable
     pre_build_image: false
     image: debian:stable # renovate: datasource=docker
-    dockerfile: Dockerfile-debian.j2
+    dockerfile: template-Dockerfile-debian.j2
     privileged: true
     command: "/sbin/init"
 
