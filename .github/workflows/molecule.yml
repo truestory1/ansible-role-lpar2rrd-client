@@ -21,10 +21,10 @@ jobs:
           - debian
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: robertdebock/molecule-action@5.0.2
+        uses: robertdebock/molecule-action@a71e455d3ce0925e285c32acc419efa048dd50e4 # 5.0.2
         with:
           scenario: ${{ matrix.scenario }}
