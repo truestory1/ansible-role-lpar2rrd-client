@@ -10,9 +10,7 @@ driver:
 platforms:
   - name: lpar2rrd-rhel8
     pre_build_image: false
-    registry:
-      url: registry.access.redhat.com
-    image: ubi8/ubi-init
+    image: registry.access.redhat.com/ubi8/ubi-init
     privileged: true
     command: "/usr/sbin/init"
 

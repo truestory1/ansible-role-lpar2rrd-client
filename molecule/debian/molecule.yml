@@ -10,9 +10,7 @@ driver:
 platforms:
   - name: lpar2rrd-debian-stable
     pre_build_image: false
-    registry:
-      url: registry.hub.docker.com
-    image: library/debian:stable
+    image: registry.hub.docker.com/library/debian:stable
     dockerfile: template-Dockerfile-debian.j2
     privileged: true
     command: "/sbin/init"
