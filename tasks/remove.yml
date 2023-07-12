@@ -19,13 +19,12 @@
 - name: Remove user - {{ lpar2rrd_user }}
   ansible.builtin.user:
     name: "{{ lpar2rrd_user }}"
-    uid: "{{ lpar2rrd_useruid | default(omit) }}"
+    force: true
     state: absent
 
 - name: Remove group - {{ lpar2rrd_group }}
   ansible.builtin.group:
     name: "{{ lpar2rrd_group }}"
-    gid: "{{ lpar2rrd_groupgid | default(omit) }}"
     state: absent
 
 - name: Search for temp files
