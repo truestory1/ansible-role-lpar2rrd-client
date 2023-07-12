@@ -5,14 +5,39 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
-  "regexManagers": [{
-    "fileMatch": ["(^|/)*.yml$"],
-    "matchStrings": ["\"(?<currentValue>(?:\\d+\\.)+\\d+)\"\\s*#\\s*renovate:\\s*datasource=(?<datasource>github-(?:releases|tags))\\s+repo=https://[^/]+/(?<depName>[^\\s]*).git"]
-},
-{
-    "fileMatch": ["(^|/)*.yml$"],
-    "matchStrings": ["(?<lookupName>(?:(?<registry>(?:[a-z0-9-]+\\.)+[a-z0-9]+(?::[0-9]{1,6})?)/)?(?<depName>[^:@\\s'\"]*))(?::(?<currentValue>[^@\\s]+))?(?:@(?<currentDigest>sha256:[a-f0-9]+))?\\s*#\\s*renovate:\\s+datasource=(?<datasource>docker)"]
-}
-
-]
+  "regexManagers": [
+    {
+      "fileMatch": [".*\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: datasource=docker( versioning=(?<versioning>.*?))?\n\\s*-\\s+(?<depName>[^:]+):(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "docker"
+    },
+    {
+      "fileMatch": [".*\\.ya?ml$"],
+      "matchStrings": [
+        "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n",
+        "# renovate: datasource=helm\n .*- name: (?<depName>.*?)\n *url: (?<registryUrl>.*?)\n *version: (?<currentValue>.*)\n"
+      ],
+      "datasourceTemplate": "helm"
+    },
+    {
+      "fileMatch": [".*\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: datasource=gitlab-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_version:\\s*(?<currentValue>[.*])\\s",
+        "# renovate: datasource=gitlab-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( registryUrl=(?<registryUrl>.*?))?\\s.*?_version:\\s*['\"](?<currentValue>.*)['\"]\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "datasourceTemplate": "gitlab-tags"
+    },
+    {
+      "fileMatch": ["./.+\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: datasource=github-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?version:\\s*(?<currentValue>.*)\\s",
+        "# renovate: datasource=github-tags depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?version:\\s*['\"](?<currentValue>.*)['\"]\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+      "datasourceTemplate": "github-tags"
+    }
+  ]
 }
