@@ -10,9 +10,7 @@ driver:
 platforms:
   - name: lpar2rrd-rhel9
     pre_build_image: false
-    registry:
-      url: registry.access.redhat.com
-    image: ubi9/ubi-init
+    image: registry.access.redhat.com/ubi9/ubi-init
     privileged: true
     command: "/usr/sbin/init"
 
