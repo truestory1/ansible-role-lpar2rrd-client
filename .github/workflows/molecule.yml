@@ -26,6 +26,6 @@ jobs:
           path: "${{ github.repository }}"
 
       - name: Molecule
-        uses: robertdebock/molecule-action@a71e455d3ce0925e285c32acc419efa048dd50e4 # 5.0.2
+        uses: robertdebock/molecule-action@1d7bccac41a43ddd7f4faaa7775e59f0ecf7a865 # 6.0.0
         with:
           scenario: ${{ matrix.scenario }}
