@@ -1,9 +1,9 @@
 [![Molecule](https://github.com/truestory1/lpar2rrd_install/workflows/Molecule/badge.svg)](https://github.com/truestory1/lpar2rrd_install/actions/workflows/molecule.yml)
 
-LPAR2RRD_INSTALL
+ansible-role-lpar2rrd-client
 =========
 
-Generic lpar2rrd deployment, or removal
+Generic lpar2rrd client deployment
 
 Requirements
 ------------
@@ -19,4 +19,3 @@ Example Playbook
 ----------------
 
 see molecule converge [playbook](molecule/default/converge.yml)
-
