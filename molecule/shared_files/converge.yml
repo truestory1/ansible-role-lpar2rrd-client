@@ -5,4 +5,4 @@
   tasks:
     - name: "Include role"
       ansible.builtin.include_role:
-        name: "lpar2rrd_install"
+        name: "ansible-role-lpar2rrd-client"
