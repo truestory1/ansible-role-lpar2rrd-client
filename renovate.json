@@ -7,7 +7,7 @@
   ],
   "dockerfile": {
     "fileMatch": [
-      "(^|/)molecule\\.ya?ml$"
+      "molecule\\.yml$"
     ]
   }
  }
