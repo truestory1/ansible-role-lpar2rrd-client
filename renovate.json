@@ -4,5 +4,10 @@
     "config:base",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
-  ]
+  ],
+  "docker": {
+    "fileMatch": [
+      "(^|/)molecule\\.ya?ml$"
+    ]
+  }
  }
