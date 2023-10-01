@@ -5,9 +5,15 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
-  "dockerfile": {
-    "fileMatch": [
-      "molecule\\.yml$"
-    ]
-  }
+"regexManagers": [
+    {
+      "fileMatch": [
+        "(^|/|\\.)molecule[^/]*$"
+      ],
+      "matchStrings": [
+        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_VERSION=(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
  }
