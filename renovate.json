@@ -29,7 +29,7 @@
   ],
   "customDatasources": {
     "qwe": {
-      "defaultRegistryUrlTemplate": "https://www.lpar2rrd.com/agent",
+      "defaultRegistryUrlTemplate": "https://lpar2rrd.com/agent/",
       "format": "html"
     }
   },
