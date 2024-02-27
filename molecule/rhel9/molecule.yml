@@ -10,7 +10,7 @@ driver:
 platforms:
   - name: lpar2rrd-rhel9
     pre_build_image: false
-    # renovate: datasource=docker
+    # renovate: datasource=docker depName=registry.access.redhat.com/ubi9/ubi-init
     image: registry.access.redhat.com/ubi9/ubi-init:latest
     privileged: true
     command: "/usr/sbin/init"
