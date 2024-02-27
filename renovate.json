@@ -19,11 +19,11 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "main.yml$"
+        "main.yml"
       ],
-      "datasourceTemplate": "lpar2rrd_agent",
+      "datasourceTemplate": "tt",
       "matchStrings": [
-        "lpar2rrd_version: \"(?<currentValue>.*)\" # (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
+        "lpar2rrd_version: (?<currentValue>.*) # (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
       ]
     }
   ],
@@ -36,7 +36,7 @@
   "packageRules": [
     {
       "matchDatasources": [
-        "lpar2rrd_agent"
+        "tt"
       ],
       "extractVersion": "^lpar2rrd-agent-(?<version>.+)\\.noarch\\.rpm$"
     }
