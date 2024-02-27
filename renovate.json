@@ -5,15 +5,36 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
-"regexManagers": [
-    {
-      "fileMatch": [
-        "(^|/|\\.)molecule[^/]*$"
-      ],
-      "matchStrings": [
-        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_VERSION=(?<currentValue>.*)"
-      ],
-      "datasourceTemplate": "docker"
-    }
-  ]
+  "customManagers": [
+      {
+        "customType": "regex",
+        "fileMatch": [
+          "(^|/|\\.)molecule[^/]*$"
+        ],
+        "matchStrings": [
+          "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_VERSION=(?<currentValue>.*)"
+        ],
+        "datasourceTemplate": "docker"
+      },
+      {
+        "customType": "regex",
+        "fileMatch": ["main.yml$"],
+        "datasourceTemplate": "lpar2rrd_agent",
+        "matchStrings": [
+          "lpar2rrd_version: \"(?<currentValue>.*)\" # (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
+        ]
+      }
+    ],
+    "customDatasources": {
+      "lpar2rrd_agent": {
+        "defaultRegistryUrlTemplate": "https://www.lpar2rrd.com/agent",
+        "format": "html"
+      }
+    },
+    "packageRules": [
+      {
+        "matchDatasources": ["lpar2rrd_agent"],
+        "extractVersion": "^lpar2rrd-agent-(?<version>.+)\\.noarch\\.rpm$"
+      }
+    ]
  }
