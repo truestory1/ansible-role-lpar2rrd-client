@@ -28,7 +28,7 @@
     }
   ],
   "customDatasources": {
-    "lpar2rrd_agent": {
+    "qwe": {
       "defaultRegistryUrlTemplate": "https://www.lpar2rrd.com/agent",
       "format": "html"
     }
