@@ -21,7 +21,7 @@
       "fileMatch": [
         "main.yml"
       ],
-      "datasourceTemplate": "qwe",
+      "datasourceTemplate": "custom.qwe",
       "matchStrings": [
         "lpar2rrd_version: (?<currentValue>.*) # (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
       ]
