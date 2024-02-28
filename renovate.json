@@ -23,7 +23,7 @@
       ],
       "datasourceTemplate": "custom.qwe",
       "matchStrings": [
-        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_version=(?<currentValue>.*)"
+        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_version:(?<currentValue>.*)"
       ]
     }
   ],
