@@ -21,14 +21,14 @@
       "fileMatch": [
         "main.yml"
       ],
-      "datasourceTemplate": "custom.qwe",
+      "datasourceTemplate": "custom.lpar_agent",
       "matchStrings": [
         "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_version: (?<currentValue>.*)"
       ]
     }
   ],
   "customDatasources": {
-    "qwe": {
+    "lpar_agent": {
       "defaultRegistryUrlTemplate": "https://lpar2rrd.com/agent/",
       "format": "html"
     }
@@ -36,7 +36,7 @@
   "packageRules": [
     {
       "matchDatasources": [
-        "custom.qwe"
+        "custom.lpar_agent"
       ],
       "extractVersion": "lpar2rrd-agent_(?<version>.+)_all\\.deb$"
     }
