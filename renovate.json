@@ -23,7 +23,7 @@
       ],
       "datasourceTemplate": "custom.qwe",
       "matchStrings": [
-        "lpar2rrd_version: (?<currentValue>.*) # (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
+        "lpar2rrd_version: (?<currentValue>.*)"
       ]
     }
   ],
