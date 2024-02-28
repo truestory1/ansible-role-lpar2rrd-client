@@ -8,7 +8,7 @@ lpar2rrd_group: lpar2rrd
 # lpar2rrd_groupgid: 2000 # optional
 lpar2rrd_shell: /bin/bash
 
-# renovate: datasource=custom.qwe depName=lpar2rrd-agent versioning=loose
+# renovate: datasource=custom.qwe depName=lpar2rrd-agent versioning=semver-coerced
 lpar2rrd_version: 7.60-1
 lpar2rrd_baseurl: "https://www.lpar2rrd.com/agent"
 
