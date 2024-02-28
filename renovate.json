@@ -38,7 +38,7 @@
       "matchDatasources": [
         "qwe"
       ],
-      "extractVersion": "^lpar2rrd-agent-(?<version>.+)_all\\.deb$"
+      "extractVersion": "^lpar2rrd-agent_(?<version>.+)_all\\.deb$"
     }
   ]
 }
