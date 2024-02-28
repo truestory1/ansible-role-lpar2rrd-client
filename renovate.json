@@ -36,7 +36,7 @@
   "packageRules": [
     {
       "matchDatasources": [
-        "qwe"
+        "custom.qwe"
       ],
       "extractVersion": "lpar2rrd-agent_(?<version>.+)_all\\.deb$"
     }
