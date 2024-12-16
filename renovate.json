@@ -12,7 +12,8 @@
         "(^|/|\\.)molecule[^/]*$"
       ],
       "matchStrings": [
-        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_VERSION=(?<currentValue>.*)"
+        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_VERSION=(?<currentValue>.*)",
+        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_image: (?<currentValue>.*)"
       ],
       "datasourceTemplate": "docker"
     },
