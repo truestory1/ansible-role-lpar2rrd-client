@@ -11,6 +11,7 @@
             name:
               - crontabs
               - cronie
+              - sudo
             state: present
 
         - name: Rhel- start cron service
@@ -28,6 +29,7 @@
             name:
               - cron
               - procps
+              - sudo
             update_cache: yes
             state: present
         - name: Deb - start cron service
