@@ -9,7 +9,7 @@ driver:
   name: docker
 platforms:
   - name: lpar2rrd-rhel8
-    pre_build_image: false
+    pre_build_image: true
     # renovate: datasource=docker depName=registry.access.redhat.com/ubi8/ubi-init
     image: registry.access.redhat.com/ubi8/ubi-init:latest
     privileged: true
