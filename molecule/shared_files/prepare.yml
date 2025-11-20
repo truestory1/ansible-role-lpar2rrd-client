@@ -6,6 +6,9 @@
     - name: RHEL base images - install sudo
       ansible.builtin.raw: yum -y install shadow-utils passwd util-linux-core util-linux-user sudo
 
+    - name: RH - fix /etc/shadow permissions
+      ansible.builtin.raw: chmod 0400 /etc/shadow
+
 - name: Ensure we all the dependecies
   hosts: all
   gather_facts: true
