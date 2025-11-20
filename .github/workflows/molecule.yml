@@ -26,4 +26,4 @@ jobs:
       - name: Molecule
         uses: gofrolist/molecule-action@v2
         with:
-          scenario: ${{ matrix.scenario }}
+          molecule_args: --scenario-name ${{ matrix.scenario }}
