@@ -6,7 +6,7 @@ lint: |
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: containers
 platforms:
   - name: lpar2rrd-rhel8
     pre_build_image: false
@@ -15,7 +15,7 @@ platforms:
     privileged: true
     command: "/usr/sbin/init"
     groups:
-      - rhel
+      - rhel8
 
 provisioner:
   name: ansible

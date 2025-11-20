@@ -15,7 +15,7 @@ platforms:
     privileged: true
     command: "/usr/sbin/init"
     groups:
-      - rhel8
+      - rhel
 
 provisioner:
   name: ansible
