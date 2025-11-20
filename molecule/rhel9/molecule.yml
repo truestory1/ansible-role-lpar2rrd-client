@@ -14,6 +14,8 @@ platforms:
     image: registry.access.redhat.com/ubi9/ubi-init:latest
     privileged: true
     command: "/usr/sbin/init"
+    groups:
+      - rhel
 
 provisioner:
   name: ansible
