@@ -4,9 +4,7 @@
   gather_facts: false
   tasks:
     - name: RHEL base images - install sudo
-      ansible.builtin.raw:
-        cmd: |
-          yum install -y sudo shadow-utils
+      ansible.builtin.raw: yum install -y sudo shadow-utils
 
 - name: Ensure we all the dependecies
   hosts: all
