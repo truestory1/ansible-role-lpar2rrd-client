@@ -18,6 +18,11 @@
     - name: RH8 - install python3-dnf
       ansible.builtin.raw: yum -y install python3-dnf
 
+    - name: Setup python3 as default python
+      ansible.builtin.command: |
+        alternatives --set python  /usr/bin/python3.11
+        alternatives --set python3 /usr/bin/python3.11
+
 - name: Ensure we all the dependecies
   hosts: all
   gather_facts: true
