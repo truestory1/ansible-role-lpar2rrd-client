@@ -14,8 +14,8 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
-          - rhel8
           - rhel9
+          - rhel10
           - debian
     steps:
       - name: Checkout

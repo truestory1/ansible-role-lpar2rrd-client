@@ -6,16 +6,16 @@ lint: |
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: containers
 platforms:
-  - name: lpar2rrd-rhel8
+  - name: lpar2rrd-rhel10
     pre_build_image: false
-    # renovate: datasource=docker depName=registry.access.redhat.com/ubi8/ubi-init
-    image: registry.access.redhat.com/ubi8/ubi-init:latest
+    # renovate: datasource=docker depName=registry.access.redhat.com/ubi9/ubi-init
+    image: registry.access.redhat.com/ubi10/ubi-init:latest
     privileged: true
     command: "/usr/sbin/init"
-    groups:
-      - rhel8
+    # groups:
+    #   - rhel9
 
 provisioner:
   name: ansible
