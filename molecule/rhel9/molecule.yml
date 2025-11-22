@@ -6,7 +6,7 @@ lint: |
 dependency:
   name: galaxy
 driver:
-  name: containers
+  name: docker
 platforms:
   - name: lpar2rrd-rhel9
     pre_build_image: false
