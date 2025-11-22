@@ -1,15 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "(^|/|\\.)molecule[^/]*$"
+      "managerFilePatterns": [
+        "/(^|/|\\.)molecule[^/]*$/"
       ],
       "matchStrings": [
         "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_VERSION=(?<currentValue>.*)",
@@ -19,8 +19,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "main.yml"
+      "managerFilePatterns": [
+        "/main.yml/"
       ],
       "datasourceTemplate": "custom.lpar_agent",
       "matchStrings": [
