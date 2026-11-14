@@ -24,6 +24,6 @@ jobs:
           path: "${{ github.repository }}"
 
       - name: Molecule
-        uses: gofrolist/molecule-action@2f3cabc46b44fd81be92d7879407fde9c4479df1 # v2
+        uses: gofrolist/molecule-action@52c7de8cf1bfef0c1ad43ea69fd5c4b227de368b # v2
         with:
           molecule_args: --scenario-name ${{ matrix.scenario }}
